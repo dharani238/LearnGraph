@@ -637,7 +637,45 @@ if (!authToken) {
 
       {/* MAIN */}
 
-      <main className="lg:ml-64">
+      {/* MOBILE NAVIGATION */}
+
+<nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-slate-200 bg-white/95 px-2 py-2 shadow-[0_-8px_30px_rgba(15,23,42,0.12)] backdrop-blur-xl lg:hidden">
+  <div className="flex items-center justify-around gap-1 overflow-x-auto">
+    {navItems
+      .filter((item) =>
+        [
+          "dashboard",
+          "subjects",
+          "graph",
+          "learning",
+          "progress",
+        ].includes(item.id)
+      )
+      .map((item) => {
+        const Icon = item.icon;
+        const active = page === item.id;
+
+        return (
+          <button
+            key={item.id}
+            onClick={() => setPage(item.id)}
+            className={`flex min-w-[62px] flex-1 flex-col items-center justify-center gap-1 rounded-xl px-2 py-2 text-[10px] font-semibold transition ${
+              active
+                ? "bg-violet-50 text-violet-700"
+                : "text-slate-500 hover:bg-slate-50"
+            }`}
+          >
+            <Icon size={20} />
+            <span>{item.label}</span>
+          </button>
+        );
+      })}
+  </div>
+</nav>
+
+{/* MAIN */}
+
+<main className="pb-20 lg:ml-64 lg:pb-0">
         <header className="sticky top-0 z-10 flex h-16 items-center justify-between border-b border-white/60 bg-white/80 px-5 shadow-sm backdrop-blur-xl md:px-8">
   <div>
     <div className="text-xs font-semibold uppercase tracking-wider text-violet-600">
@@ -724,7 +762,7 @@ if (!authToken) {
           </div>
         )}
 
-        <div className="p-5 md:p-8">
+        <div className="p-5 pb-24 md:p-8">
           {/* DASHBOARD */}
 
           {page ===
