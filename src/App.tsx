@@ -220,9 +220,26 @@ const [authToken, setAuthToken] = useState<string | null>(
   };
 
   useEffect(() => {
-    loadInitialData();
-  }, []);
+  if (!authToken) {
+    // Clear previous user's data when logged out
+    setAssessment(null);
+    setHistory([]);
+    setAnswers({});
+    setQuestions([]);
+    setQuestionIndex(0);
 
+    setSelectedSubject(null);
+    setSelectedTopic(null);
+    setConcepts([]);
+
+    setLoading(false);
+
+    return;
+  }
+
+  // Load data for the currently logged-in user
+  loadInitialData();
+}, [authToken]);
   // =========================================
   // SELECT SUBJECT
   // =========================================
@@ -541,9 +558,34 @@ const handleAuthenticated = (token: string) => {
 };
 
 const handleLogout = () => {
+  // Remove authentication
   localStorage.removeItem("learngraph_token");
   localStorage.removeItem("learngraph_user");
 
+  // Clear previous user's assessment/progress
+  setAssessment(null);
+  setHistory([]);
+
+  // Clear quiz state
+  setQuestions([]);
+  setAnswers({});
+  setQuestionIndex(0);
+
+  // Clear learning state
+  setAiLearning(null);
+  setAiLearningError("");
+  setAiLearningLoading(false);
+
+  // Clear selected learning data
+  setSelectedSubject(null);
+  setSelectedTopic(null);
+  setConcepts([]);
+  setTopics([]);
+
+  // Reset page
+  setPage("dashboard");
+
+  // Show login
   setAuthToken(null);
   setAuthPage("login");
 };
