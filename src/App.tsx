@@ -9,7 +9,6 @@ import {
   ChevronRight,
   CircleHelp,
   Code2,
-  GraduationCap,
   Lightbulb,
   Network,
   PlayCircle,
@@ -18,7 +17,6 @@ import {
   TrendingUp,
   Sparkles,
   CheckCircle2,
-  ArrowDown,
   Trophy,
   Zap,
 } from "lucide-react";
@@ -107,11 +105,7 @@ function App() {
 const [authToken, setAuthToken] = useState<string | null>(
   () => localStorage.getItem("learngraph_token")
 );
-const storedUser = localStorage.getItem("learngraph_user");
 
-const currentUser = storedUser
-  ? JSON.parse(storedUser)
-  : null;
   const [page, setPage] =
     useState<Page>("dashboard");
 
