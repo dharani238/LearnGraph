@@ -1,0 +1,542 @@
+@import "tailwindcss";
+
+/* =========================================================
+   LEARNGRAPH GLOBAL DESIGN SYSTEM
+   ========================================================= */
+
+:root {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  color: #0f172a;
+  background: #f8fafc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(139, 92, 246, 0.08),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 90% 5%,
+      rgba(59, 130, 246, 0.07),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(16, 185, 129, 0.05),
+      transparent 30%
+    ),
+    #f8fafc;
+
+  color: #0f172a;
+}
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+  background: rgba(124, 58, 237, 0.18);
+  color: #4c1d95;
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #c4b5fd,
+    #8b5cf6
+  );
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    #a78bfa,
+    #7c3aed
+  );
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    opacity 180ms ease;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+button:not(:disabled):active {
+  transform: scale(0.98);
+}
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #8b5cf6 !important;
+  box-shadow:
+    0 0 0 3px rgba(139, 92, 246, 0.12),
+    0 4px 14px rgba(15, 23, 42, 0.04);
+}
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================================================
+   PREMIUM CARD EFFECT
+   ========================================================= */
+
+.lg-card {
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.03),
+    0 8px 30px rgba(15, 23, 42, 0.04);
+
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+.lg-card:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 2px 4px rgba(15, 23, 42, 0.04),
+    0 16px 40px rgba(15, 23, 42, 0.07);
+
+  border-color: rgba(196, 181, 253, 0.7);
+}
+
+/* =========================================================
+   GLASS EFFECT
+   ========================================================= */
+
+.lg-glass {
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 10px 40px rgba(15, 23, 42, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+/* =========================================================
+   GRADIENT TEXT
+   ========================================================= */
+
+.lg-gradient-text {
+  background: linear-gradient(
+    135deg,
+    #7c3aed,
+    #4f46e5,
+    #0891b2
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* =========================================================
+   AI GLOW
+   ========================================================= */
+
+.lg-ai-glow {
+  box-shadow:
+    0 0 0 1px rgba(139, 92, 246, 0.08),
+    0 0 35px rgba(139, 92, 246, 0.08);
+}
+
+.lg-ai-glow:hover {
+  box-shadow:
+    0 0 0 1px rgba(139, 92, 246, 0.15),
+    0 0 45px rgba(139, 92, 246, 0.14);
+}
+
+/* =========================================================
+   SOFT BACKGROUND GRID
+   ========================================================= */
+
+.lg-grid-bg {
+  background-image:
+    linear-gradient(
+      rgba(148, 163, 184, 0.07) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(148, 163, 184, 0.07) 1px,
+      transparent 1px
+    );
+
+  background-size: 32px 32px;
+}
+
+/* =========================================================
+   FLOATING ORBS
+   ========================================================= */
+
+.lg-orb {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  filter: blur(60px);
+  opacity: 0.45;
+  animation: lgFloat 8s ease-in-out infinite;
+}
+
+.lg-orb-purple {
+  background: rgba(139, 92, 246, 0.2);
+}
+
+.lg-orb-blue {
+  background: rgba(59, 130, 246, 0.16);
+  animation-delay: -2s;
+}
+
+.lg-orb-cyan {
+  background: rgba(6, 182, 212, 0.14);
+  animation-delay: -4s;
+}
+
+@keyframes lgFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(0, -14px, 0) scale(1.04);
+  }
+}
+
+/* =========================================================
+   PAGE ENTRANCE
+   ========================================================= */
+
+.lg-page-enter {
+  animation: lgPageEnter 420ms ease-out both;
+}
+
+@keyframes lgPageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   FADE UP
+   ========================================================= */
+
+.lg-fade-up {
+  animation: lgFadeUp 500ms ease-out both;
+}
+
+@keyframes lgFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   STAGGER ANIMATION
+   ========================================================= */
+
+.lg-stagger-1 {
+  animation-delay: 80ms;
+}
+
+.lg-stagger-2 {
+  animation-delay: 160ms;
+}
+
+.lg-stagger-3 {
+  animation-delay: 240ms;
+}
+
+.lg-stagger-4 {
+  animation-delay: 320ms;
+}
+
+/* =========================================================
+   SHIMMER
+   ========================================================= */
+
+.lg-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.lg-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    110deg,
+    transparent 25%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 75%
+  );
+
+  transform: translateX(-100%);
+  animation: lgShimmer 2.8s infinite;
+}
+
+@keyframes lgShimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* =========================================================
+   PULSE DOT
+   ========================================================= */
+
+.lg-pulse-dot {
+  position: relative;
+}
+
+.lg-pulse-dot::after {
+  content: "";
+
+  position: absolute;
+  inset: -4px;
+
+  border-radius: 9999px;
+
+  border: 2px solid currentColor;
+
+  opacity: 0.2;
+
+  animation: lgPulse 1.8s ease-out infinite;
+}
+
+@keyframes lgPulse {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.5;
+  }
+
+  70% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   GRADIENT BORDER
+   ========================================================= */
+
+.lg-gradient-border {
+  position: relative;
+  isolation: isolate;
+}
+
+.lg-gradient-border::before {
+  content: "";
+
+  position: absolute;
+  inset: -1px;
+
+  border-radius: inherit;
+
+  background: linear-gradient(
+    135deg,
+    rgba(124, 58, 237, 0.35),
+    rgba(79, 70, 229, 0.15),
+    rgba(6, 182, 212, 0.25)
+  );
+
+  z-index: -1;
+}
+
+/* =========================================================
+   BADGES
+   ========================================================= */
+
+.lg-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  border-radius: 999px;
+
+  padding: 6px 10px;
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+
+  background: rgba(124, 58, 237, 0.08);
+  color: #6d28d9;
+
+  border: 1px solid rgba(124, 58, 237, 0.12);
+}
+
+/* =========================================================
+   PREMIUM SHADOWS
+   ========================================================= */
+
+.lg-shadow-sm {
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.04),
+    0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.lg-shadow-md {
+  box-shadow:
+    0 4px 10px rgba(15, 23, 42, 0.04),
+    0 16px 35px rgba(15, 23, 42, 0.06);
+}
+
+.lg-shadow-lg {
+  box-shadow:
+    0 10px 20px rgba(15, 23, 42, 0.05),
+    0 25px 60px rgba(15, 23, 42, 0.08);
+}
+
+/* =========================================================
+   TEXT HELPERS
+   ========================================================= */
+
+.lg-eyebrow {
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #7c3aed;
+}
+
+.lg-muted {
+  color: #64748b;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  body {
+    background:
+      radial-gradient(
+        circle at 50% 0%,
+        rgba(139, 92, 246, 0.08),
+        transparent 35%
+      ),
+      #f8fafc;
+  }
+
+  .lg-card:hover {
+    transform: none;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
